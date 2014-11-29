@@ -2,14 +2,10 @@ package com.epam.brest.taskremote.service;
 
 
 import com.epam.brest.taskremote.domain.Automobile;
+
 import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
-import java.util.List;
 
 /**
  * Created by alesya on 20.11.14.
@@ -22,31 +18,37 @@ public class AutomobileServiceImpl implements AutomobileService {
 
     @Override
     public Long addAutomobile(Automobile automobile) {
-        return null;
+        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
+        return automobileRestClient.addAutomobile(automobile);
     }
 
     @Override
     public void removeAutomobile(Long id) {
-
+        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
+        automobileRestClient.removeAutomobile(id);
     }
 
     @Override
     public void updateAutomobile(Automobile automobile) {
-
+        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
+        automobileRestClient.addAutomobile(automobile);
     }
 
     @Override
     public Automobile getAutomobileById(Long id) {
-        return null;
+        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
+        return automobileRestClient.getAutomobileById(id);
     }
 
     @Override
     public Automobile getAutomobileByNumber(String number) {
-        return null;
+        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
+        return automobileRestClient.getAutomobileByNumber(number);
     }
 
     @Override
-    public List<Automobile> getAllAutomobiles() {
-        return null;
+    public Automobile[] getAllAutomobiles() {
+        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
+        return automobileRestClient.getAllAutomobiles();
     }
 }

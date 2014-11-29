@@ -1,4 +1,4 @@
-package com.epam.brest.taskproject.web;
+package com.epam.brest.taskremote.web;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

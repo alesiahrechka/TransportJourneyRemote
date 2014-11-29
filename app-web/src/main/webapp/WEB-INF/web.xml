@@ -30,7 +30,7 @@
 
     <filter>
         <filter-name>optionsFilter</filter-name>
-        <filter-class>com.epam.brest.taskproject.rest.OptionsFilter</filter-class>
+        <filter-class>com.epam.brest.taskremote.web.OptionsFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>optionsFilter</filter-name>
@@ -39,8 +39,9 @@
 
     <filter>
         <filter-name>optionsFilter</filter-name>
-        <filter-class>com.epam.brest.taskproject.rest.OptionsFilter</filter-class>
+        <filter-class>com.epam.brest.taskremote.web.OptionsFilter</filter-class>
     </filter>
+
     <filter-mapping>
         <filter-name>optionsFilter</filter-name>
         <url-pattern>/*</url-pattern>
