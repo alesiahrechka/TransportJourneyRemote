@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * Created by alesya on 29.11.14.
  */
+
 public class AutomobileRestClient {
 
     private static final Logger LOGGER = LogManager.getLogger();
