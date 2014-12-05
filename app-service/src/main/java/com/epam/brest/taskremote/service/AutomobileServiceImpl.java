@@ -3,6 +3,7 @@ package com.epam.brest.taskremote.service;
 
 import com.epam.brest.taskremote.domain.Automobile;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,41 +15,56 @@ import org.apache.logging.log4j.Logger;
 @Service
 public class AutomobileServiceImpl implements AutomobileService {
 
+    private AutomobileRestClient restClient ;
+           // = new  AutomobileRestClient("http://localhost:8080/journey");
+
     private static final Logger LOGGER = LogManager.getLogger();
 
     @Override
     public Long addAutomobile(Automobile automobile) {
-        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
-        return automobileRestClient.addAutomobile(automobile);
+
+        restClient = new AutomobileRestClient("http://localhost:8080/journey");
+
+        return restClient.addAutomobile(automobile);
     }
 
     @Override
     public void removeAutomobile(Long id) {
-        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
-        automobileRestClient.removeAutomobile(id);
+
+        restClient = new AutomobileRestClient("http://localhost:8080/journey");
+
+        restClient.removeAutomobile(id);
     }
 
     @Override
     public void updateAutomobile(Automobile automobile) {
-        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
-        automobileRestClient.addAutomobile(automobile);
+
+        restClient = new AutomobileRestClient("http://localhost:8080/journey");
+
+        restClient.addAutomobile(automobile);
     }
 
     @Override
     public Automobile getAutomobileById(Long id) {
-        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
-        return automobileRestClient.getAutomobileById(id);
+
+        restClient = new AutomobileRestClient("http://localhost:8080/journey");
+
+        return restClient.getAutomobileById(id);
     }
 
     @Override
     public Automobile getAutomobileByNumber(String number) {
-        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
-        return automobileRestClient.getAutomobileByNumber(number);
+
+        restClient = new AutomobileRestClient("http://localhost:8080/journey");
+
+        return restClient.getAutomobileByNumber(number);
     }
 
     @Override
     public Automobile[] getAllAutomobiles() {
-        AutomobileRestClient automobileRestClient = new AutomobileRestClient("http://localhost:8080");
-        return automobileRestClient.getAllAutomobiles();
+
+        restClient = new AutomobileRestClient("http://localhost:8080/journey");
+
+        return restClient.getAllAutomobiles();
     }
 }

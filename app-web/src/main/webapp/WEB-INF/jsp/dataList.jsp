@@ -20,7 +20,7 @@
         background: #b0e0e6;
     }
 </style>
-
+Remote access
 <form:form method="get" modelAttribute="automobiles">
 <h1><spring:message code="automobile.list" /></h1>
 <ul>

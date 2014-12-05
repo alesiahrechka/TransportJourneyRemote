@@ -9,7 +9,7 @@
     <modules>
         <module>app-core</module>      
         <module>app-service</module>     
-        <module>app-web</module>        
+        <module>app-web</module>
     </modules>
 
     <properties>
