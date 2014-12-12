@@ -50,7 +50,7 @@ public class JourneyServiceImpl implements JourneyService {
 
     @Override
     public Long addJourney(Journey journey) {
-        return null;
+        return restClient.addJourney(journey);
     }
 
     @Override

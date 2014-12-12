@@ -53,7 +53,7 @@ public class AutomobileServiceImpl implements AutomobileService {
 
     @Override
     public void updateAutomobile(Automobile automobile) {
-        restClient.addAutomobile(automobile);
+        restClient.updateAutomobile(automobile);
     }
 
     @Override
