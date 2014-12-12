@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-
+Remote access
 <style type='text/css'>
 label {
     display: block;
@@ -20,7 +20,7 @@ input[type='text'] {
 }
 </style>
 
-<form action="/submitJourneyData" method="post">
+<form action= ${relativeAddress}/submitJourneyData method="post">
     <form:form method="get" modelAttribute="journeys">
     <label path="automobile">select automobile:</label>
     <select name="automobile">

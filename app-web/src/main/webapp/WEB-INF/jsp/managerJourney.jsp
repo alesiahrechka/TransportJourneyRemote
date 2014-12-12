@@ -5,8 +5,8 @@
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="en">
-
-<form action="/submitSelectJourney" method="post">
+Remote access
+<form action= ${relativeAddress}/submitSelectJourney method="post">
     <label path="selectJourney">select journey:</label>
     <form:form method="get" modelAttribute="journeys">
         <select name="journey">
@@ -21,7 +21,7 @@
 </br>
 </p>
 
-<form action="/submitManageJourney" method="post">
+<form action= ${relativeAddress}/submitManageJourney method="post">
     <form:form method="get" modelAttribute="managedJourney">
 
         <label path="journeyId:">journey id:</label>

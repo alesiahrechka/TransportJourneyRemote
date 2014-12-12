@@ -11,7 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -26,24 +29,24 @@ public class JourneyServiceImpl implements JourneyService {
 
     public static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd");
 
-//    private String remoteHost;
-//    private JourneyRestClient restClient ;
-//    {
-//        try {
-//            remoteHost = readHostFromPropertyFile();
-//        } catch (IOException e) {
-//            LOGGER.error(e.getMessage());
-//            remoteHost = "";
-//        }
-//        restClient = new AutomobileRestClient(remoteHost);
-//    }
-//
-//    private static String readHostFromPropertyFile() throws IOException {
-//        Properties properties = new Properties();
-//        properties.load(AutomobileServiceImpl.class.getClassLoader()
-//                .getResourceAsStream("host.properties"));
-//        return  properties.getProperty("remoteHost");
-//    }
+    private String remoteHost;
+    private JourneyRestClient restClient ;
+    {
+        try {
+            remoteHost = readHostFromPropertyFile();
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage());
+            remoteHost = "";
+        }
+        restClient = new JourneyRestClient(remoteHost);
+    }
+
+    private static String readHostFromPropertyFile() throws IOException {
+        Properties properties = new Properties();
+        properties.load(AutomobileServiceImpl.class.getClassLoader()
+                .getResourceAsStream("host.properties"));
+        return  properties.getProperty("remoteHost");
+    }
 
     @Override
     public Long addJourney(Journey journey) {
@@ -52,46 +55,34 @@ public class JourneyServiceImpl implements JourneyService {
 
     @Override
     public void removeJourney(Long id) {
-
+        restClient.removeJourney(id);
     }
 
     @Override
     public void updateJourney(Journey journey) {
-
+        restClient.updateJourney(journey);
     }
 
     @Override
     public Journey getJourneyById(Long id) {
-        return null;
+        return restClient.getJourneyById(id);
     }
 
     @Override
     public List<Journey> getAllJourneys() {
-        return null;
-    }
-
-    @Override
-    public List<Journey> getJourneys(Date date1, Date date2) {
-        return null;
-    }
-
-    @Override
-    public List<Journey> getAllJourneysOfAutomobile(Long automobileId) {
-        return null;
-    }
-
-    @Override
-    public List<Journey> getJourneysOfAutomobile(Long automobileId, Date date1, Date date2) {
-        return null;
+        return Arrays.asList( restClient.getAllJourneys() );
     }
 
     @Override
     public List<AutomobileSummary> getAutomobileSummaries() {
-        return null;
+        return Arrays.asList( restClient.getAutomobileSummaries() );
+
     }
 
     @Override
-    public List<AutomobileSummary> getAutomobileSummaries(Date date1, Date date2) {
-        return null;
+    public List<AutomobileSummary> getAutomobileSummaries(Date date1, Date date2){
+        String dateFrom = SDF.format(date1);
+        String dateTo   = SDF.format(date2);
+        return Arrays.asList( restClient.getAutomobileSummaries(dateFrom, dateTo) );
     }
 }

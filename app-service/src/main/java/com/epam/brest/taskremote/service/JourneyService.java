@@ -21,12 +21,6 @@ public interface JourneyService {
 
     public List<Journey> getAllJourneys();
 
-    public List<Journey> getJourneys(Date date1, Date date2);
-
-    public List<Journey> getAllJourneysOfAutomobile(Long automobileId);
-
-    public List<Journey> getJourneysOfAutomobile(Long automobileId, Date date1, Date date2);
-
     public List<AutomobileSummary> getAutomobileSummaries();
 
     public List<AutomobileSummary> getAutomobileSummaries(Date date1, Date date2);

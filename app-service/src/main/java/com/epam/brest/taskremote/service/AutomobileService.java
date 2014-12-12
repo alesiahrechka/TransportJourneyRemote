@@ -19,6 +19,6 @@ public interface AutomobileService {
 
     public Automobile getAutomobileByNumber(String number);
 
-    public Automobile[] getAllAutomobiles();
+    public List<Automobile> getAllAutomobiles();
 
 }

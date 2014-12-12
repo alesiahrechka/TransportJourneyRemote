@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-
+Remote access
 <style type="text/css">
     TABLE {
 
@@ -20,7 +20,7 @@
         background: #b0e0e6;
     }
 </style>
-Remote access
+
 <form:form method="get" modelAttribute="automobiles">
 <h1><spring:message code="automobile.list" /></h1>
 <ul>
@@ -46,7 +46,39 @@ Remote access
 <a href='<spring:url value="/inputFormAutomobile" />'> <spring:message code="automobile.create" /></a></br>
 <a href='<spring:url value="/managerAutomobile" />'> <spring:message code="automobile.manager" /></a>
 
-
+<form:form method="get" modelAttribute="journeys">
+<h1><spring:message code="journey.list" /></h1>
+<ul>
+    <table width = 700px>
+        <th>
+            <td>id</td>
+            <td>automobile</td>
+            <td>make</td>
+            <td>number</td>
+            <td>fuelRate</td>
+            <td>origin-destination</td>
+            <td>distance</td>
+            <td>date</td>
+        </th>
+        <c:forEach items="${journeys}" var="journey">
+        <tr>
+            <td/>
+            <td>${journey.id}</td>
+            <td>${journey.automobile.id}</td>
+            <td>${journey.automobile.make}</td>
+            <td>${journey.automobile.number}</td>
+            <td>${journey.automobile.fuelRate}</td>
+            <td>${journey.originDestination}</td>
+            <td>${journey.distance}</td>
+            <td>${journey.date}</td>
+        </tr>
+    </c:forEach>
+    </table>
+</ul>
+</form:form>
+<a href='<spring:url value="/inputFormJourney" />'> <spring:message code="journey.create" /></a></br>
+<a href='<spring:url value="/managerJourney" />'> <spring:message code="journey.manager" /></a>
+<p><a href='<spring:url value="/summary" />'> <spring:message code="summary.list" /></a></p>
 
 </body>
 </html>
